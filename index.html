@@ -1,26 +1,281 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-  <title>Ski & Smile</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Les 3 Mousquetaires - Aventure Épique</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Georgia', serif;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      color: #e0e0e0;
+      line-height: 1.6;
+    }
+    
+    header {
+      background: linear-gradient(to right, #c41e3a 0%, #8b0000 100%);
+      padding: 2rem 0;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    }
+    
+    h1 {
+      font-size: 3.5rem;
+      color: #fff;
+      text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
+      letter-spacing: 2px;
+      margin-bottom: 0.5rem;
+    }
+    
+    .tagline {
+      font-size: 1.3rem;
+      color: #ffd700;
+      font-style: italic;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    }
+    
+    nav {
+      background: rgba(0, 0, 0, 0.3);
+      padding: 1rem;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    
+    nav a {
+      color: #ffd700;
+      margin: 0 1.5rem;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+    
+    nav a:hover {
+      color: #fff;
+      text-shadow: 0 0 10px #ffd700;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    
+    .hero {
+      text-align: center;
+      padding: 3rem 0;
+      background: linear-gradient(135deg, rgba(196, 30, 58, 0.1) 0%, rgba(139, 0, 0, 0.1) 100%);
+      border-radius: 10px;
+      margin-bottom: 3rem;
+      border: 2px solid #c41e3a;
+    }
+    
+    .hero h2 {
+      font-size: 2.5rem;
+      color: #ffd700;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    }
+    
+    .hero p {
+      font-size: 1.2rem;
+      color: #e0e0e0;
+      margin-bottom: 2rem;
+    }
+    
+    .characters {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+    
+    .character-card {
+      background: linear-gradient(135deg, rgba(196, 30, 58, 0.2) 0%, rgba(139, 0, 0, 0.2) 100%);
+      border: 2px solid #c41e3a;
+      border-radius: 10px;
+      padding: 2rem;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+    
+    .character-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 20px rgba(196, 30, 58, 0.4);
+    }
+    
+    .character-card h3 {
+      font-size: 1.8rem;
+      color: #ffd700;
+      margin-bottom: 1rem;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+    }
+    
+    .character-card p {
+      color: #e0e0e0;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+    
+    .character-icon {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+    }
+    
+    .tagline-secondary {
+      color: #ffd700;
+      font-style: italic;
+      font-weight: bold;
+    }
+    
+    .cta-button {
+      display: inline-block;
+      padding: 1rem 2.5rem;
+      background: linear-gradient(to right, #c41e3a, #8b0000);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: bold;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(196, 30, 58, 0.4);
+      border: 2px solid #ffd700;
+    }
+    
+    .cta-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 25px rgba(196, 30, 58, 0.6);
+      color: #ffd700;
+    }
+    
+    footer {
+      background: rgba(0, 0, 0, 0.5);
+      text-align: center;
+      padding: 2rem;
+      margin-top: 3rem;
+      border-top: 2px solid #c41e3a;
+    }
+    
+    footer p {
+      color: #ffd700;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+    
+    .story-section {
+      background: linear-gradient(135deg, rgba(196, 30, 58, 0.1) 0%, rgba(139, 0, 0, 0.1) 100%);
+      border-radius: 10px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border-left: 5px solid #ffd700;
+    }
+    
+    .story-section h2 {
+      color: #ffd700;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+    }
+    
+    .story-section p {
+      color: #e0e0e0;
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+  </style>
 </head>
-
-<body style="font-family: Arial; text-align: center; padding: 20px;">
-
-  <h1>🎿 Ski & Smile</h1>
-  <p>Apprends le ski pas à pas, avec le sourire</p>
-
-  <h2>❤️ Mon histoire</h2>
-  <p>
-    Ski & Smile aide les débutants et les skieurs à progresser
-    à leur rythme, avec plaisir et confiance.
-  </p>
-
-  <h2>🎿 Réserver un cours</h2>
-  <a href="TON LIEN KOALENDAR"
-     style="padding:15px; background:black; color:white; text-decoration:none;">
-     Réserver maintenant
-  </a>
-
+<body>
+  <header>
+    <h1>⚔️ LES 3 MOUSQUETAIRES ⚔️</h1>
+    <p class="tagline">Un pour tous, tous pour un!</p>
+  </header>
+  
+  <nav>
+    <a href="#histoire">⚔️ Histoire</a>
+    <a href="#personnages">👥 Personnages</a>
+    <a href="#aventure">🗺️ Aventure</a>
+  </nav>
+  
+  <div class="container">
+    <div class="hero">
+      <h2>Bienvenue dans la légende</h2>
+      <p>Découvrez l'épopée extraordinaire de trois mousquetaires qui ont marqué l'histoire de France à jamais.</p>
+      <a href="#" class="cta-button">Embarquer dans l'aventure</a>
+    </div>
+    
+    <div class="story-section" id="histoire">
+      <h2>📖 L'Histoire Légendaire</h2>
+      <p>
+        Dans la France du XVIIe siècle, trois guerriers d'exception ont forgé une amitié indéfectible. 
+        Leurs exploits, leurs combats épiques et leur dévouement à la couronne ont inspiré les générations.
+        Une histoire de courage, d'honneur et de fraternité qui transcende les âges.
+      </p>
+    </div>
+    
+    <h2 style="text-align: center; color: #ffd700; margin: 2rem 0; font-size: 2.2rem;">🏰 Les Héros 🏰</h2>
+    
+    <div class="characters" id="personnages">
+      <div class="character-card">
+        <div class="character-icon">⚔️</div>
+        <h3>D'Artagnan</h3>
+        <p class="tagline-secondary">Le Mousquetaire Légendaire</p>
+        <p>
+          Jeune et ambitieux, d'Artagnan apporte le courage et la détermination. 
+          Son épée est redoutable et son cœur est pur.
+        </p>
+      </div>
+      
+      <div class="character-card">
+        <div class="character-icon">🗡️</div>
+        <h3>Athos</h3>
+        <p class="tagline-secondary">Le Noble et Énigmatique</p>
+        <p>
+          Athos porte les cicatrices du passé avec dignité. 
+          Son honneur et sa sagesse sont les piliers du groupe.
+        </p>
+      </div>
+      
+      <div class="character-card">
+        <div class="character-icon">🛡️</div>
+        <h3>Porthos</h3>
+        <p class="tagline-secondary">Le Force Brute</p>
+        <p>
+          Porthos, géant aux muscles d'acier et au cœur d'or. 
+          Sa loyauté est inébranlable et sa force légendaire.
+        </p>
+      </div>
+      
+      <div class="character-card">
+        <div class="character-icon">🎩</div>
+        <h3>Aramis</h3>
+        <p class="tagline-secondary">L'Élégant et Spirituel</p>
+        <p>
+          Aramis combine l'élégance avec la prouesse guerrière. 
+          Philosophe et combattant, il est le reflet de la sophistication française.
+        </p>
+      </div>
+    </div>
+    
+    <div class="story-section" id="aventure">
+      <h2>🗺️ L'Aventure Éternelle</h2>
+      <p>
+        À travers chaque combat, chaque voyage, chaque trahison et chaque victoire, 
+        les quatre compagnons ont prouvé que l'amitié est plus forte que l'épée. 
+        Leurs aventures aux quatre coins du monde continuent d'inspirer et de captiver.
+      </p>
+    </div>
+  </div>
+  
+  <footer>
+    <p>© 2026 - Les 3 Mousquetaires - Tous droits réservés</p>
+  </footer>
 </body>
 </html>
